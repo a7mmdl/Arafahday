@@ -1,0 +1,3866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The Day of Arafah</title>
+    <meta name="description" content="The day of du'a, the day that can change your life. A simple plan to prepare for, and make the most of, the Day of Arafah."/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+    /* =======================================================
+       The Day of Arafah, interactive guide
+       ======================================================= */
+    :root {
+        --brand-orange: #E8854A;
+        --brand-orange-soft: rgba(232, 133, 74, .08);
+        --brand-orange-border: rgba(232, 133, 74, .20);
+        --brand-orange-strong: #C56A35;
+        --brand-coral: #D4607A;
+        --brand-coral-soft: rgba(212, 96, 122, .06);
+        --brand-coral-border: rgba(212, 96, 122, .18);
+        --brand-teal: #3CB89A;
+        --brand-teal-soft: rgba(60, 184, 154, .08);
+        --brand-teal-border: rgba(60, 184, 154, .22);
+        --brand-teal-deep: #1a8a50;
+        --brand-purple: #7B6BAE;
+        --brand-purple-soft: rgba(123, 107, 174, .06);
+        --brand-purple-border: rgba(123, 107, 174, .18);
+        --brand-gold: #c8a84e;
+        --brand-gold-soft: rgba(200, 168, 78, .08);
+        --brand-gold-border: rgba(200, 168, 78, .22);
+        --brand-gold-deep: #8a7234;
+        --brand-gradient: linear-gradient(135deg, #E8854A 0%, #D4607A 40%, #3CB89A 75%, #7B6BAE 100%);
+        --bg1: #f9f8f4;
+        --bg2: #f1f0eb;
+        --cream: #faf8f0;
+        --card: #ffffff;
+        --overlay: rgba(26, 26, 24, .45);
+        --fg1: #1a1a18;
+        --fg2: #4a4a42;
+        --fg3: #8a8a80;
+        --fg4: #b0b0a4;
+        --fg-on-dark: #e8e6df;
+        --border: #e6e5de;
+        --border-soft: #eeedea;
+        --border-strong: #d4d3cb;
+        --shadow-1: 0 1px 3px rgba(0, 0, 0, .04);
+        --shadow-2: 0 2px 8px rgba(0, 0, 0, .04);
+        --shadow-3: 0 4px 14px rgba(0, 0, 0, .06);
+        --shadow-4: 0 14px 40px rgba(0, 0, 0, .10);
+        --r-sm: 8px;
+        --r-md: 10px;
+        --r-lg: 14px;
+        --r-xl: 16px;
+        --r-2xl: 20px;
+        --r-full: 999px;
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        --font-ui: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        --font-arabic: 'Scheherazade New', 'Amiri', Georgia, serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-ui);
+        color: var(--fg1);
+        background: var(--bg1);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        line-height: 1.55;
+        overflow-x: hidden;
+    }
+
+    ::selection {
+        background: var(--brand-orange-soft);
+        color: var(--brand-orange-strong);
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 28px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--brand-orange);
+        display: inline-block;
+    }
+
+    .arabic {
+        font-family: var(--font-arabic);
+        direction: rtl;
+    }/* ---------- nav ---------- */
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 28px;
+        transition: background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+        border-bottom: 1px solid transparent;
+    }
+
+    .nav.solid {
+        background: rgba(249, 248, 244, .86);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: var(--shadow-2);
+        border-bottom-color: var(--border-soft);
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: -.01em;
+    }
+
+    .brand .mark {
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        background: var(--brand-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .brand .mark::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .92);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 6px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--fg2);
+        text-decoration: none;
+        padding: 7px 12px;
+        border-radius: var(--r-full);
+        transition: background .2s var(--ease), color .2s var(--ease);
+    }
+
+    .nav-links a:hover {
+        background: var(--bg2);
+        color: var(--fg1);
+    }/* ---------- hero ---------- */
+    .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 28px 80px;
+        overflow: hidden;
+    }
+
+    .hero-glow {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+        radial-gradient(620px 420px at 50% 30%, rgba(232, 133, 74, .13), transparent 70%), radial-gradient(520px 460px at 78% 78%, rgba(123, 107, 174, .10), transparent 72%), radial-gradient(520px 460px at 20% 80%, rgba(60, 184, 154, .09), transparent 72%);
+    }
+
+    .hero-arch {
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(560px, 86vw);
+        z-index: 0;
+        opacity: .5;
+        pointer-events: none;
+    }
+
+    .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 760px;
+    }
+
+    .hero .ornament {
+        color: var(--brand-gold-deep);
+        font-size: 30px;
+        line-height: 1;
+        opacity: .85;
+        font-family: var(--font-arabic);
+    }
+
+    .hero-eyebrow {
+        margin: 18px 0 6px;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: var(--brand-gold-deep);
+    }
+
+    .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(44px, 8.4vw, 82px);
+        line-height: 1.04;
+        letter-spacing: -.02em;
+        color: var(--fg1);
+        text-wrap: balance;
+    }
+
+    .hero .ar-title {
+        font-family: var(--font-arabic);
+        direction: rtl;
+        font-weight: 400;
+        font-size: clamp(30px, 5.6vw, 46px);
+        color: var(--brand-gold-deep);
+        margin-top: 8px;
+        line-height: 1.4;
+    }
+
+    .hero .lede {
+        margin: 20px auto 0;
+        max-width: 480px;
+        font-size: clamp(15px, 2vw, 17px);
+        color: var(--fg2);
+        line-height: 1.6;
+    }/* countdown */
+
+    .hero-count {
+        position: relative;
+        z-index: 2;
+        width: min(980px, 94vw);
+        margin-top: 38px;
+    }
+
+    .count-label {
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: var(--fg3);
+        text-align: center;
+    }
+
+    .count {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 16px;
+        flex-wrap: wrap;
+    }
+
+    .count-unit {
+        flex: 1 1 150px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        box-shadow: var(--shadow-3);
+        padding: 26px 12px 18px;
+    }
+
+    .count-num {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(46px, 6.8vw, 76px);
+        line-height: 1;
+        color: var(--fg1);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -.01em;
+    }
+
+    .count-lbl {
+        display: block;
+        margin-top: 9px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+        color: var(--fg3);
+    }
+
+    .count-done {
+        font-family: var(--font-display);
+        font-size: 26px;
+        color: var(--brand-teal-deep);
+        background: var(--brand-teal-soft);
+        border: 1px solid var(--brand-teal-border);
+        border-radius: var(--r-lg);
+        padding: 18px 30px;
+    }
+
+    .count-date {
+        margin-top: 18px;
+        font-size: 13.5px;
+        color: var(--fg3);
+        text-align: center;
+    }
+
+    .scroll-cue {
+        position: relative;
+        z-index: 2;
+        margin-top: 44px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--fg2);
+        text-decoration: none;
+    }
+
+    .scroll-cue svg {
+        animation: bob 2.4s var(--ease) infinite;
+    }
+
+    @keyframes bob {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(5px);
+        }
+    }/* ---------- section frame ---------- */
+    section {
+        position: relative;
+        scroll-margin-top: 64px;
+    }
+
+    .sec {
+        padding: 104px 0;
+    }
+
+    .sec-head {
+        max-width: 620px;
+        margin-bottom: 50px;
+    }
+
+    .sec-head.center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .sec-head h2 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(30px, 4.6vw, 44px);
+        line-height: 1.12;
+        letter-spacing: -.015em;
+        color: var(--fg1);
+        margin-top: 12px;
+        text-wrap: balance;
+    }
+
+    .sec-head p {
+        margin-top: 14px;
+        font-size: 16px;
+        color: var(--fg2);
+        line-height: 1.6;
+    }
+
+    .divider-ar {
+        text-align: center;
+        color: var(--brand-gold);
+        font-family: var(--font-arabic);
+        font-size: 22px;
+        opacity: .7;
+    }/* segue */
+    .segue {
+        text-align: center;
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 14px 28px 0;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(17px, 2.6vw, 21px);
+        color: var(--fg2);
+        line-height: 1.5;
+    }/* ---------- section 1 : importance ---------- */
+    #importance {
+        background:
+        linear-gradient(180deg, var(--bg1) 0%, var(--cream) 22%, var(--cream) 78%, var(--bg1) 100%);
+    }
+
+    .hook {
+        margin-top: 44px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-2xl);
+        box-shadow: var(--shadow-3);
+        padding: 40px clamp(24px, 4vw, 52px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hook::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--brand-gradient);
+    }
+
+    .hook .lead {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(20px, 3.2vw, 27px);
+        line-height: 1.4;
+        color: var(--fg1);
+        text-wrap: pretty;
+    }
+
+    .hook p + p {
+        margin-top: 16px;
+    }
+
+    .hook .soft {
+        font-size: 15.5px;
+        color: var(--fg2);
+        line-height: 1.65;
+    }
+
+    .hook .ask {
+        color: var(--brand-coral);
+        font-weight: 500;
+    }
+
+    .virtues {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+    }
+
+    .virtue {
+        position: relative;
+        cursor: pointer;
+        background: var(--card);
+        border: 1px solid var(--accent-border);
+        border-radius: var(--r-xl);
+        padding: 24px 22px;
+        transition: transform .35s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+        animation: vglow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes vglow {
+        0%, 100% {
+            box-shadow: 0 2px 9px rgba(0, 0, 0, .05);
+        }
+
+        50% {
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .06), 0 0 0 3px var(--accent-soft), 0 0 26px 2px var(--accent-border);
+        }
+    }
+
+    .virtue:hover {
+        transform: translateY(-3px);
+    }
+
+    .virtue.done {
+        animation: none;
+        cursor: default;
+        background: var(--brand-teal-soft);
+        border-color: var(--brand-teal);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+    }
+
+    .virtue.done:hover {
+        transform: none;
+    }
+
+    .virtue-badge {
+        position: absolute;
+        top: 13px;
+        right: 13px;
+    }
+
+    .vb-tap {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .09em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+        border-radius: var(--r-full);
+        padding: 4px 9px;
+        display: inline-block;
+    }
+
+    .vb-done {
+        display: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--brand-teal);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .vb-done svg {
+        width: 13px;
+        height: 13px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .virtue.done .vb-tap {
+        display: none;
+    }
+
+    .virtue.done .vb-done {
+        display: flex;
+    }
+
+    .virtue.done .ic {
+        background: var(--brand-teal-soft);
+        border-color: var(--brand-teal-border);
+    }
+
+    .virtue.done .ic svg {
+        stroke: var(--brand-teal-deep);
+    }
+
+    .virtue.done h3 {
+        color: var(--brand-teal-deep);
+    }
+
+    .virtue .ic {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+    }
+
+    .virtue .ic svg {
+        width: 21px;
+        height: 21px;
+        stroke: var(--accent);
+        fill: none;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .virtue h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--fg1);
+        margin-bottom: 6px;
+    }
+
+    .virtue p {
+        font-size: 13.5px;
+        color: var(--fg2);
+        line-height: 1.55;
+    }
+
+    .virtue .vsrc {
+        margin-top: 11px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-soft);
+        font-size: 11px;
+        font-style: italic;
+        color: var(--fg3);
+        line-height: 1.45;
+    }/* hadith feature block */
+    .hadith {
+        margin-top: 44px;
+        background: var(--cream);
+        border: 1px solid var(--brand-gold-border);
+        border-radius: var(--r-2xl);
+        box-shadow: var(--shadow-2);
+        padding: 42px clamp(24px, 5vw, 56px);
+        text-align: center;
+    }
+
+    .hadith-orn {
+        font-family: var(--font-arabic);
+        font-size: 26px;
+        color: var(--brand-gold);
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    .hadith .eyebrow {
+        color: var(--brand-gold-deep);
+    }
+
+    .hadith-lead {
+        margin: 14px auto 0;
+        max-width: 600px;
+        font-family: var(--font-display);
+        font-size: clamp(19px, 2.8vw, 25px);
+        line-height: 1.4;
+        color: var(--fg1);
+        text-wrap: pretty;
+    }
+
+    .hadith-ar {
+        margin-top: 24px;
+        font-family: var(--font-arabic);
+        direction: rtl;
+        font-size: clamp(23px, 3.8vw, 31px);
+        line-height: 1.95;
+        color: var(--brand-gold-deep);
+    }
+
+    .hadith-en {
+        margin: 14px auto 0;
+        max-width: 560px;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(16px, 2.5vw, 20px);
+        line-height: 1.5;
+        color: var(--fg2);
+    }
+
+    .hadith-src {
+        margin-top: 18px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--fg3);
+    }
+
+    .hadith-action {
+        margin: 24px auto 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: var(--brand-orange-soft);
+        border: 1px solid var(--brand-orange-border);
+        border-radius: var(--r-full);
+        padding: 9px 16px 9px 9px;
+    }
+
+    .ha-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--brand-orange);
+        border-radius: var(--r-full);
+        padding: 6px 12px;
+    }
+
+    .ha-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--brand-orange-strong);
+        line-height: 1.4;
+    }
+
+    .quote-band {
+        margin-top: 44px;
+        text-align: center;
+        padding: 44px 28px;
+        background: var(--brand-gradient);
+        border-radius: var(--r-2xl);
+        box-shadow: var(--shadow-3);
+    }
+
+    .quote-band p {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(18px, 3.1vw, 30px);
+        line-height: 1.3;
+        color: #fff;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, .12);
+        margin: 0 auto;
+        text-wrap: balance;
+    }
+
+    .keywindow {
+        margin-top: 40px;
+        background: var(--brand-orange-soft);
+        border: 1px solid var(--brand-orange-border);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+    }
+
+    .kw-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        background: none;
+        border: 0;
+        font-family: inherit;
+        text-align: left;
+        padding: 15px 20px;
+    }
+
+    .kwt-ic {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: var(--brand-orange);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .kwt-ic svg {
+        width: 18px;
+        height: 18px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .kwt-label {
+        flex: 1;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--brand-orange-strong);
+    }
+
+    .kwt-chev {
+        width: 18px;
+        height: 18px;
+        stroke: var(--brand-orange-strong);
+        fill: none;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform .35s var(--ease);
+    }
+
+    .keywindow.dua-open .kwt-chev {
+        transform: rotate(180deg);
+    }
+
+    .keywindow:not(.dua-open) .kw-toggle {
+        animation: duaThrob 1.9s ease-in-out infinite;
+    }
+
+    @keyframes duaThrob {
+        0%, 100% {
+            background: transparent;
+        }
+
+        50% {
+            background: var(--brand-orange-soft);
+        }
+    }
+
+    .keywindow:not(.dua-open) .kwt-ic {
+        animation: duaGlow 1.9s ease-in-out infinite;
+    }
+
+    @keyframes duaGlow {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 transparent;
+        }
+
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 18px 3px var(--brand-orange-border);
+        }
+    }
+
+    .kw-callout {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 16px 20px;
+        border-top: 1px solid var(--brand-orange-border);
+    }
+
+    .kw-callout .kw-ic {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: var(--card);
+        border: 1px solid var(--brand-orange-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .kw-callout .kw-ic svg {
+        width: 23px;
+        height: 23px;
+        stroke: var(--brand-orange-strong);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .kw-callout b {
+        font-size: 15px;
+        color: var(--brand-orange-strong);
+    }
+
+    .kw-callout span {
+        font-size: 14px;
+        color: var(--fg2);
+    }
+
+    .dua-guide {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows .4s var(--ease);
+    }
+
+    .keywindow.dua-open .dua-guide {
+        grid-template-rows: 1fr;
+    }
+
+    .dua-guide-in {
+        overflow: hidden;
+    }
+
+    .dua-pad {
+        padding: 4px 20px 22px;
+        border-top: 1px solid var(--brand-orange-border);
+    }
+
+    .dua-tip {
+        margin-top: 18px;
+        background: var(--cream);
+        border: 1px solid var(--brand-gold-border);
+        border-radius: var(--r-lg);
+        padding: 18px 20px;
+    }
+
+    .dua-tip .eyebrow {
+        color: var(--brand-gold-deep);
+    }
+
+    .dua-tip p {
+        font-size: 13.5px;
+        color: var(--fg2);
+        margin-top: 8px;
+        line-height: 1.55;
+    }
+
+    .dua-tip p.dua-frame {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 16px;
+        color: var(--fg1);
+        line-height: 1.6;
+        margin-top: 10px;
+    }
+
+    .dua-tip p.dua-frame b {
+        font-style: normal;
+        color: var(--brand-gold-deep);
+    }
+
+    .dua-il {
+        display: block;
+        margin-top: 18px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--fg3);
+    }
+
+    .dua-input-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .dua-input-row input {
+        flex: 1;
+        min-width: 0;
+        font-family: inherit;
+        font-size: 14px;
+        color: var(--fg1);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--r-md);
+        padding: 11px 14px;
+        background: var(--card);
+        outline: none;
+    }
+
+    .dua-input-row input:focus {
+        border-color: var(--brand-orange);
+        box-shadow: 0 0 0 3px var(--brand-orange-soft);
+    }
+
+    .dua-input-row button {
+        flex-shrink: 0;
+        background: var(--brand-orange);
+        color: #fff;
+        border: 0;
+        border-radius: var(--r-md);
+        padding: 0 18px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .dua-input-row button:hover {
+        background: var(--brand-orange-strong);
+    }
+
+    .dua-themes {
+        margin-top: 16px;
+    }
+
+    .dt-label {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--fg2);
+    }
+
+    .dt-list {
+        list-style: none;
+        margin-top: 10px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+        gap: 0 18px;
+    }
+
+    .dt-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 2px;
+        cursor: pointer;
+        font-size: 13px;
+        color: var(--fg1);
+        transition: color .15s var(--ease);
+    }
+
+    .dt-item::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: var(--brand-orange);
+    }
+
+    .dt-item:hover {
+        color: var(--brand-orange-strong);
+    }
+
+    .dua-list-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 22px;
+        flex-wrap: wrap;
+    }
+
+    .dua-list-head h4 {
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .dua-count {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--brand-orange-strong);
+        background: var(--card);
+        border: 1px solid var(--brand-orange-border);
+        border-radius: var(--r-full);
+        min-width: 22px;
+        height: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 7px;
+    }
+
+    .dua-list {
+        list-style: none;
+        margin-top: 12px;
+        padding: 0;
+    }
+
+    .dua-empty {
+        font-size: 13px;
+        color: var(--fg4);
+        text-align: center;
+        padding: 18px;
+        border: 1.5px dashed var(--border-strong);
+        border-radius: var(--r-md);
+    }
+
+    .dua-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        padding: 11px 13px;
+        background: var(--card);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--r-md);
+        margin-bottom: 7px;
+        border-left: 3px solid var(--brand-orange);
+    }
+
+    .dua-item .di-n {
+        font-family: var(--font-display);
+        font-size: 14px;
+        color: var(--brand-orange-strong);
+        flex-shrink: 0;
+        line-height: 1.6;
+        min-width: 18px;
+    }
+
+    .dua-item .di-text {
+        flex: 1;
+        font-size: 13.5px;
+        color: var(--fg1);
+        line-height: 1.55;
+        word-break: break-word;
+    }
+
+    .dua-item .di-del {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dua-item .di-del:hover {
+        background: var(--brand-coral-soft);
+    }
+
+    .dua-item .di-del svg {
+        width: 12px;
+        height: 12px;
+        stroke: var(--fg4);
+        fill: none;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+    }
+
+    .dua-item .di-del:hover svg {
+        stroke: var(--brand-coral);
+    }
+
+    .reminders {
+        margin-top: 48px;
+    }
+
+    .reminders .rh {
+        font-family: var(--font-display);
+        font-size: 22px;
+        color: var(--fg1);
+        margin-bottom: 18px;
+    }
+
+    .rem-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+    }
+
+    .rem {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 18px 16px;
+    }
+
+    .rem .n {
+        font-family: var(--font-display);
+        font-size: 15px;
+        color: var(--brand-purple);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--brand-purple-soft);
+        border: 1px solid var(--brand-purple-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    .rem h4 {
+        font-size: 13.5px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .rem p {
+        font-size: 12.5px;
+        color: var(--fg2);
+        line-height: 1.5;
+    }/* ---------- section 2 : timetable ---------- */
+    #timetable {
+        background: var(--bg1);
+    }
+
+    .timeline {
+        position: relative;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 19px;
+        top: 14px;
+        bottom: 14px;
+        width: 2px;
+        background: linear-gradient(180deg, var(--brand-orange), var(--brand-purple), var(--brand-coral));
+        opacity: .35;
+    }
+
+    .stage {
+        position: relative;
+        padding-left: 62px;
+        margin-bottom: 16px;
+    }
+
+    .stage-dot {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--card);
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 600;
+        z-index: 1;
+        box-shadow: var(--shadow-1);
+    }
+
+    .stage-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        box-shadow: var(--shadow-1);
+        overflow: hidden;
+        transition: box-shadow .3s var(--ease);
+    }
+
+    .stage.open .stage-card {
+        box-shadow: var(--shadow-3);
+    }
+
+    .stage-head {
+        width: 100%;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 22px;
+        font-family: inherit;
+    }
+
+    .stage-head .txt {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .stage-eyebrow {
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent);
+    }
+
+    .stage-head h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--fg1);
+        margin-top: 3px;
+    }
+
+    .stage-head .sub {
+        font-size: 13px;
+        color: var(--fg3);
+        margin-top: 3px;
+    }
+
+    .stage-prog {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--fg3);
+        background: var(--bg2);
+        border-radius: var(--r-full);
+        padding: 5px 11px;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .stage.complete .stage-prog {
+        background: var(--brand-teal-soft);
+        color: var(--brand-teal-deep);
+    }
+
+    .chev {
+        width: 18px;
+        height: 18px;
+        stroke: var(--fg3);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform .35s var(--ease);
+        flex-shrink: 0;
+    }
+
+    .stage.open .chev {
+        transform: rotate(180deg);
+    }
+
+    .stage-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows .4s var(--ease);
+    }
+
+    .stage.open .stage-panel {
+        grid-template-rows: 1fr;
+    }
+
+    .stage-panel-in {
+        overflow: hidden;
+    }
+
+    .acts {
+        list-style: none;
+        padding: 4px 22px 22px;
+    }
+
+    .acts li {
+        border-top: 1px solid var(--border-soft);
+    }
+
+    .acts label {
+        display: flex;
+        align-items: flex-start;
+        gap: 13px;
+        padding: 13px 4px;
+        cursor: pointer;
+        font-size: 14px;
+        color: var(--fg1);
+        line-height: 1.5;
+    }
+
+    .acts input {
+        display: none;
+    }
+
+    .acts .box {
+        width: 21px;
+        height: 21px;
+        border-radius: 7px;
+        border: 1.7px solid var(--border-strong);
+        flex-shrink: 0;
+        margin-top: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .acts .box svg {
+        width: 12px;
+        height: 12px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0;
+        transition: opacity .15s var(--ease);
+    }
+
+    .acts input:checked + .box {
+        background: var(--brand-teal);
+        border-color: var(--brand-teal);
+    }
+
+    .acts input:checked + .box svg {
+        opacity: 1;
+    }
+
+    .acts input:checked ~ .actx {
+        color: var(--fg3);
+        text-decoration: line-through;
+        text-decoration-color: var(--brand-teal);
+    }/* ---------- section 3 : builder ---------- */
+    #builder {
+        background: linear-gradient(180deg, var(--bg1), var(--cream) 40%);
+    }
+
+    .builder-bar {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    .btn {
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: var(--r-full);
+        padding: 10px 18px;
+        border: 1px solid var(--border-strong);
+        background: var(--card);
+        color: var(--fg1);
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition: transform .12s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
+    }
+
+    .btn:hover {
+        box-shadow: var(--shadow-2);
+    }
+
+    .btn:active {
+        transform: scale(.97);
+    }
+
+    .btn svg {
+        width: 15px;
+        height: 15px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .btn-primary {
+        background: var(--brand-orange);
+        border-color: var(--brand-orange);
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background: var(--brand-orange-strong);
+    }
+
+    .btn-ghost {
+        background: transparent;
+    }
+
+    .save-note {
+        font-size: 12px;
+        color: var(--fg3);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .save-note .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--brand-teal);
+    }
+
+    .builder-grid {
+        display: grid;
+        grid-template-columns: 262px 1fr;
+        gap: 24px;
+        align-items: start;
+    }/* sidebar / palette */
+    .palette {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        box-shadow: var(--shadow-1);
+        position: sticky;
+        top: 74px;
+    }
+
+    .palette-head {
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--border-soft);
+    }
+
+    .palette-head h3 {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .palette-head p {
+        font-size: 11.5px;
+        color: var(--fg3);
+        margin-top: 3px;
+        line-height: 1.45;
+    }
+
+    .palette-toggle {
+        display: none;
+    }
+
+    .palette-body {
+        padding: 12px;
+        max-height: 560px;
+        overflow-y: auto;
+    }
+
+    .pal-group {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--fg4);
+        padding: 8px 6px 6px;
+    }
+
+    .lib-card {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 11px;
+        margin-bottom: 6px;
+        background: var(--bg1);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--r-md);
+        font-size: 12.5px;
+        color: var(--fg1);
+        cursor: grab;
+        line-height: 1.35;
+        transition: background .15s var(--ease), border-color .15s var(--ease), transform .12s var(--ease);
+    }
+
+    .lib-card:hover {
+        background: var(--brand-orange-soft);
+        border-color: var(--brand-orange-border);
+    }
+
+    .lib-card:active {
+        cursor: grabbing;
+    }
+
+    .lib-card.dragging {
+        opacity: .4;
+    }
+
+    .lib-card .star {
+        width: 13px;
+        height: 13px;
+        flex-shrink: 0;
+        fill: var(--brand-gold);
+        opacity: .85;
+    }
+
+    .lib-card .plus {
+        margin-left: auto;
+        width: 15px;
+        height: 15px;
+        stroke: var(--fg4);
+        fill: none;
+        stroke-width: 2;
+        flex-shrink: 0;
+    }/* calendar */
+    .calendar {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .cstage {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        box-shadow: var(--shadow-1);
+        overflow: hidden;
+        transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+    }
+
+    .cstage.drop-active {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .cstage-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        background: var(--accent-soft);
+        border-bottom: 1px solid var(--border-soft);
+    }
+
+    .cstage-bar {
+        width: 4px;
+        align-self: stretch;
+        border-radius: var(--r-full);
+        background: var(--accent);
+    }
+
+    .cstage-titles {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cstage-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--fg1);
+        outline: none;
+        border-radius: 5px;
+        padding: 1px 3px;
+    }
+
+    .cstage-time {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--accent);
+        outline: none;
+        border-radius: 5px;
+        padding: 1px 3px;
+        display: inline-block;
+        margin-top: 1px;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+    }
+
+    [contenteditable]:focus {
+        background: var(--bg2);
+        box-shadow: 0 0 0 2px var(--accent-border);
+    }
+
+    .cstage-count {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--fg3);
+        background: var(--card);
+        border-radius: var(--r-full);
+        padding: 4px 10px;
+        white-space: nowrap;
+    }
+
+    .tasklist {
+        padding: 8px;
+        min-height: 18px;
+    }
+
+    .task-empty {
+        font-size: 12.5px;
+        color: var(--fg4);
+        text-align: center;
+        padding: 16px 10px;
+        border: 1.5px dashed var(--border-strong);
+        border-radius: var(--r-md);
+        margin: 4px;
+    }
+
+    .task {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 8px;
+        border-radius: var(--r-md);
+        border: 1px solid var(--border-soft);
+        background: var(--card);
+        margin-bottom: 6px;
+        border-left: 3px solid var(--brand-teal);
+        transition: box-shadow .15s var(--ease), opacity .15s var(--ease);
+    }
+
+    .task:last-child {
+        margin-bottom: 0;
+    }
+
+    .task.custom {
+        border-left-color: var(--brand-coral);
+    }
+
+    .task.dragging {
+        opacity: .4;
+    }
+
+    .task.drop-before {
+        box-shadow: 0 -2px 0 var(--accent);
+    }
+
+    .grip {
+        cursor: grab;
+        display: flex;
+        flex-shrink: 0;
+        padding: 2px;
+        touch-action: none;
+    }
+
+    .grip svg {
+        width: 14px;
+        height: 14px;
+        stroke: var(--fg4);
+        fill: none;
+        stroke-width: 1.8;
+    }
+
+    .grip:active {
+        cursor: grabbing;
+    }
+
+    .task-time {
+        width: 62px;
+        flex-shrink: 0;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--fg2);
+        border: 1px solid var(--border-soft);
+        border-radius: 6px;
+        padding: 5px 6px;
+        font-family: inherit;
+        text-align: center;
+        background: var(--bg1);
+    }
+
+    .task-time::placeholder {
+        color: var(--fg4);
+        font-weight: 400;
+    }
+
+    .task-text {
+        flex: 1;
+        min-width: 0;
+        font-size: 13.5px;
+        color: var(--fg1);
+        line-height: 1.4;
+        outline: none;
+        border-radius: 5px;
+        padding: 3px 5px;
+    }
+
+    .task-text:focus {
+        background: var(--bg2);
+        box-shadow: 0 0 0 2px var(--border-strong);
+    }
+
+    .task-tag {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+        padding: 3px 7px;
+        border-radius: var(--r-full);
+        flex-shrink: 0;
+        background: var(--brand-teal-soft);
+        color: var(--brand-teal-deep);
+    }
+
+    .task.custom .task-tag {
+        background: var(--brand-coral-soft);
+        color: var(--brand-coral);
+    }
+
+    .task-moves {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    .imt {
+        width: 20px;
+        height: 16px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+
+    .imt:hover {
+        background: var(--bg2);
+    }
+
+    .imt svg {
+        width: 11px;
+        height: 11px;
+        stroke: var(--fg3);
+        fill: none;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .imt:disabled {
+        opacity: .25;
+        cursor: default;
+    }
+
+    .imt:disabled:hover {
+        background: none;
+    }
+
+    .task-del {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        flex-shrink: 0;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .task-del:hover {
+        background: var(--brand-coral-soft);
+    }
+
+    .task-del svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--fg4);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+    }
+
+    .task-del:hover svg {
+        stroke: var(--brand-coral);
+    }
+
+    .task-add {
+        display: flex;
+        gap: 7px;
+        padding: 6px 4px 2px;
+    }
+
+    .task-add input {
+        flex: 1;
+        font-family: inherit;
+        font-size: 13px;
+        color: var(--fg1);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--r-md);
+        padding: 8px 11px;
+        background: var(--bg1);
+        outline: none;
+    }
+
+    .task-add input:focus {
+        border-color: var(--accent);
+        background: var(--card);
+    }
+
+    .task-add button {
+        flex-shrink: 0;
+        border: 1px dashed var(--border-strong);
+        background: var(--card);
+        color: var(--fg2);
+        border-radius: var(--r-md);
+        padding: 0 13px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .task-add button:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }/* stage picker modal */
+    .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: var(--overlay);
+        backdrop-filter: blur(2px);
+    }
+
+    .modal.show {
+        display: flex;
+    }
+
+    .modal-card {
+        background: var(--card);
+        border-radius: var(--r-2xl);
+        box-shadow: var(--shadow-4);
+        width: 100%;
+        max-width: 380px;
+        padding: 24px;
+        animation: pop .3s var(--ease);
+    }
+
+    @keyframes pop {
+        from {
+            transform: scale(.94);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .modal-card h4 {
+        font-family: var(--font-display);
+        font-size: 21px;
+        margin-bottom: 4px;
+    }
+
+    .modal-card .msub {
+        font-size: 13px;
+        color: var(--fg3);
+        margin-bottom: 16px;
+    }
+
+    .modal-card .pick {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        width: 100%;
+        text-align: left;
+        font-family: inherit;
+        font-size: 14px;
+        color: var(--fg1);
+        cursor: pointer;
+        background: var(--bg1);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--r-md);
+        padding: 12px 14px;
+        margin-bottom: 8px;
+    }
+
+    .modal-card .pick:hover {
+        background: var(--bg2);
+    }
+
+    .modal-card .pick .pd {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .modal-card .pick small {
+        color: var(--fg3);
+        font-size: 11.5px;
+    }
+
+    .modal-x {
+        margin-top: 6px;
+        width: 100%;
+        text-align: center;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 13px;
+        color: var(--fg3);
+        padding: 8px;
+    }/* toast */
+    .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 26px;
+        transform: translateX(-50%) translateY(24px);
+        background: var(--fg1);
+        color: var(--fg-on-dark);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 11px 20px;
+        border-radius: var(--r-full);
+        box-shadow: var(--shadow-4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s var(--ease), transform .3s var(--ease);
+        z-index: 120;
+    }
+
+    .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }/* ---------- footer ---------- */
+    .foot {
+        background: var(--bg1);
+        border-top: 1px solid var(--border-soft);
+        padding: 46px 28px;
+        text-align: center;
+    }
+
+    .foot .fmark {
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        background: var(--brand-gradient);
+        margin: 0 auto 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .foot .fmark::after {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .92);
+    }
+
+    .foot p {
+        font-size: 12.5px;
+        color: var(--fg3);
+        line-height: 1.6;
+    }
+
+    .foot .ar {
+        font-family: var(--font-arabic);
+        font-size: 19px;
+        color: var(--brand-gold-deep);
+        margin-bottom: 8px;
+    }/* ---------- reveal ---------- */
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+
+    .reveal.in {
+        opacity: 1;
+        transform: none;
+    }/* ---------- responsive ---------- */
+    @media (max-width: 880px) {
+        .virtues {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .rem-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .builder-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .palette {
+            position: static;
+        }
+
+        .palette-body {
+            max-height: none;
+            display: none;
+        }
+
+        .palette.open .palette-body {
+            display: block;
+        }
+
+        .palette-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .palette-toggle .ptchev {
+            width: 16px;
+            height: 16px;
+            stroke: var(--fg3);
+            fill: none;
+            stroke-width: 2;
+            transition: transform .3s var(--ease);
+        }
+
+        .palette.open .palette-toggle .ptchev {
+            transform: rotate(180deg);
+        }
+    }
+
+    @media (max-width: 560px) {
+        .wrap {
+            padding: 0 18px;
+        }
+
+        .nav {
+            padding: 11px 18px;
+        }
+
+        .nav-links a {
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+
+        .sec {
+            padding: 74px 0;
+        }
+
+        .hook {
+            padding: 30px 22px;
+        }
+
+        .virtues {
+            grid-template-columns: 1fr;
+        }
+
+        .rem-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .task-time {
+            width: 52px;
+        }
+
+        .task-tag {
+            display: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: .001ms !important;
+            transition-duration: .001ms !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- ============ NAV ============ -->
+    <nav class="nav" id="nav">
+        <a href="#top" class="brand">
+            <span class="mark"></span>
+            Arafah
+        </a>
+        <div class="nav-links">
+            <a href="#importance">The day</a>
+            <a href="#timetable">The plan</a>
+            <a href="#builder">Build yours</a>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="top">
+        <div class="hero-glow"></div>
+        <svg class="hero-arch" viewBox="0 0 560 460" aria-hidden="true">
+            <path d="M40 450 V210 a240 240 0 0 1 480 0 V450" fill="none" stroke="#c8a84e" stroke-width="1.4" opacity="0.55"/>
+            <path d="M88 450 V214 a192 192 0 0 1 384 0 V450" fill="none" stroke="#E8854A" stroke-width="1.1" opacity="0.32"/>
+        </svg>
+        <div class="hero-inner">
+            <div class="ornament arabic">۞</div>
+            <div class="hero-eyebrow">9 Dhul-Hijjah 1447</div>
+            <h1>The Day of Arafah</h1>
+            <div class="ar-title">يَوْمُ عَرَفَة</div>
+            <p class="lede">The day of du&rsquo;ā, the day that can change your life.</p>
+        </div>
+
+        <div class="hero-count">
+            <div class="count-label">Until Maghrib on the Day of Arafah</div>
+            <div class="count" id="count">
+                <div class="count-unit">
+                    <span class="count-num" data-c="d">--</span>
+                    <span class="count-lbl">Days</span>
+                </div>
+                <div class="count-unit">
+                    <span class="count-num" data-c="h">--</span>
+                    <span class="count-lbl">Hours</span>
+                </div>
+                <div class="count-unit">
+                    <span class="count-num" data-c="m">--</span>
+                    <span class="count-lbl">Minutes</span>
+                </div>
+                <div class="count-unit">
+                    <span class="count-num" data-c="s">--</span>
+                    <span class="count-lbl">Seconds</span>
+                </div>
+            </div>
+            <div class="count-date">Counting down to Maghrib in London, at 9:03&nbsp;PM today, Monday 25 May 2026.</div>
+        </div>
+
+        <a href="#importance" class="scroll-cue">
+            Begin
+                
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+            </svg>
+        </a>
+    </header>
+
+    <!-- ============ SECTION 1, IMPORTANCE ============ -->
+    <section class="sec" id="importance">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="eyebrow">Why this day</span>
+                <h2>This is the best day of the year</h2>
+                <p>But why? Here are some virtues and blessings of the day!</p>
+            </div>
+
+            <div class="hadith reveal">
+                <div class="hadith-orn arabic">&#1758;</div>
+                <span class="eyebrow">The promise of this day</span>
+                <div class="hadith-ar">مَا مِنْ يَوْمٍ أَكْثَرَ مِنْ أَنْ يُعْتِقَ اللَّهُ فِيهِ عَبْدًا مِنَ النَّارِ مِنْ يَوْمِ عَرَفَةَ</div>
+                <blockquote class="hadith-en">&ldquo;There is no day on which Allah sets free more people from the Fire than the Day of Arafah.&rdquo;</blockquote>
+                <div class="hadith-src">The Prophet&nbsp;&#65018; &middot; narrated by &lsquo;Aishah (may Allah be pleased with her) &middot; Sahih Muslim</div>
+                <div class="hadith-action">
+                    <span class="ha-label">Action</span>
+                    <span class="ha-text">So ask Allah for forgiveness, and to be freed from the Hellfire.</span>
+                </div>
+            </div>
+
+            <div class="virtues" id="virtues">
+                <!-- injected -->
+            </div>
+
+            <div class="hook reveal">
+                <p class="lead">On this day, even as the Prophet&nbsp;&#65018; held his camel&rsquo;s rein with one hand, he would raise the other to the sky in du&rsquo;ā.</p>
+                <p class="soft">Because this is the best day of the year for du&rsquo;ā, and he wanted to make the most of every moment of it.</p>
+                <p class="soft ask">Ask yourself: what if this were your final year? What would you ask Allah for? How would you spend this golden time?</p>
+            </div>
+
+            <div class="quote-band reveal">
+                <p>&ldquo;Du&rsquo;ā made on this day can change everything.&rdquo;</p>
+            </div>
+
+            <div class="keywindow reveal">
+                <button class="kw-toggle" id="duaToggle" type="button" aria-expanded="false">
+                    <span class="kwt-ic">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3l1.9 5.6L20 10l-5.6 1.9L12 18l-1.9-5.6L4 10l5.6-1.9z"/>
+                        </svg>
+                    </span>
+                    <span class="kwt-label">Tap here for a Du&rsquo;ā guide</span>
+                    <svg class="kwt-chev" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="kw-callout">
+                    <div class="kw-ic">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 7v5l3 2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <b>The key window, Dhuhr to Maghrib.</b>
+                        <span>&nbsp;When it comes, do not hold back. Pour out everything.</span>
+                    </div>
+                </div>
+                <div class="dua-guide" id="duaGuide">
+                    <div class="dua-guide-in">
+                        <div class="dua-pad">
+                            <div class="dua-tip">
+                                <span class="eyebrow">A way to ask</span>
+                                <p>Begin by calling on Allah through His beautiful names, then ask Him for whatever your heart longs for:</p>
+                                <p class="dua-frame">
+                                    &ldquo;Yā Allah, 
+                                    <b>Al-Malik</b>
+                                     (The King), 
+                                    <b>Al-Mālik</b>
+                                     (The Owner), 
+                                    <b>Ar-Razzāq</b>
+                                     (the Giver of all provision), if anything were possible, I would ask You for&hellip;&rdquo;
+                                </p>
+                            </div>
+                            <label class="dua-il" for="duaInput">Write your du&rsquo;ā, then press Enter to add it to your list</label>
+                            <div class="dua-input-row">
+                                <input type="text" id="duaInput" placeholder="&hellip; I would ask You for &hellip;" autocomplete="off"/>
+                                <button type="button" id="duaAdd">Add</button>
+                            </div>
+                            <div class="dua-themes">
+                                <span class="dt-label">Not sure what to ask? Here&rsquo;s a list of themes!</span>
+                                <ul class="dt-list" id="duaThemes"></ul>
+                            </div>
+                            <div class="dua-list-head">
+                                <h4>
+                                    Your du&rsquo;ā list 
+                                    <span class="dua-count" id="duaCount">0</span>
+                                </h4>
+                                <button class="btn btn-ghost" id="duaSave" type="button">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                                        <path d="M17 21v-8H7v8M7 3v5h8"/>
+                                    </svg>
+
+                                                    Save list as image
+                                                  
+                                </button>
+                            </div>
+                            <ul class="dua-list" id="duaList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reminders reveal">
+                <div class="rh">Before the day arrives</div>
+                <div class="rem-grid" id="reminders">
+                    <!-- injected -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <p class="segue reveal">You know the weight of the day. Here is how to meet it, hour by hour.</p>
+
+    <!-- ============ SECTION 2, TIMETABLE ============ -->
+    <section class="sec" id="timetable">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="eyebrow">The plan</span>
+                <h2>A suggested timetable</h2>
+                <p>This is a suggested timetable, look through it, see what you&rsquo;re able to do, then build your own one below.</p>
+            </div>
+            <div class="builder-bar reveal">
+                <button class="btn btn-primary" id="ttSaveImg">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                        <path d="M17 21v-8H7v8M7 3v5h8"/>
+                    </svg>
+
+                            Save timetable as image
+                          
+                </button>
+            </div>
+            <div class="timeline" id="timeline">
+                <!-- injected -->
+            </div>
+        </div>
+    </section>
+
+    <p class="segue reveal">That is the path we suggest. Now shape it into your own.</p>
+
+    <!-- ============ SECTION 3, BUILD YOUR CALENDAR ============ -->
+    <section class="sec" id="builder">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="eyebrow">Make it yours</span>
+                <h2>Build your calendar</h2>
+                <p>Start from the suggested plan, then make it fit your day. Drag activities in from the side, rewrite anything, set your own times, and add your own intentions.</p>
+            </div>
+
+            <div class="builder-bar reveal">
+                <button class="btn btn-primary" id="saveImg">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                        <path d="M17 21v-8H7v8M7 3v5h8"/>
+                    </svg>
+
+                            Save as image
+                          
+                </button>
+                <button class="btn btn-ghost" id="resetBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
+                        <path d="M3 3v5h5"/>
+                    </svg>
+
+                            Reset to suggested plan
+                          
+                </button>
+                <span class="save-note">
+                    <span class="dot"></span>
+                    Your calendar is saved on this device
+                </span>
+            </div>
+
+            <div class="builder-grid reveal">
+                <aside class="palette open" id="palette">
+                    <div class="palette-head">
+                        <button class="palette-toggle" id="palToggle" aria-expanded="true">
+                            <div>
+                                <h3>Suggested activities</h3>
+                                <p>Drag onto your calendar, or tap to choose a stage.</p>
+                            </div>
+                            <svg class="ptchev" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="palette-body" id="paletteBody">
+                        <!-- injected -->
+                    </div>
+                </aside>
+
+                <div class="calendar" id="calendar">
+                    <!-- injected -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="foot">
+        <div class="fmark"></div>
+        <p class="ar">تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ</p>
+        <p>
+            Made with du&rsquo;ā for the Day of Arafah &middot; 1447&nbsp;H
+            <br/>
+
+              Dates and times follow the expected London moon sighting, please confirm with your local authority.
+        </p>
+    </footer>
+
+    <!-- ============ STAGE PICKER MODAL ============ -->
+    <div class="modal" id="modal">
+        <div class="modal-card">
+            <h4>Add to which stage?</h4>
+            <p class="msub" id="modalSub">Choose where this activity should go.</p>
+            <div id="modalPicks"></div>
+            <button class="modal-x" id="modalX">Cancel</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+    "use strict";
+    /* =========================================================
+       THE DAY OF ARAFAH, interactions
+       ========================================================= */
+
+    /* ---------- 1. COUNTDOWN ---------- */
+    (function() {
+        var target = new Date(2026, 4, 25, 21, 3, 0); // Maghrib 9:03pm London, Mon 25 May 2026
+        var box = document.getElementById("count");
+        function pad(n) {
+            return (n < 10 ? "0" : "") + n;
+        }
+        function tick() {
+            var diff = target - new Date();
+            if (diff <= 0) {
+                box.innerHTML = '<div class="count-done">Maghrib has arrived, may Allah accept every du&rsquo;ā you made on Arafah.</div>';
+                return false;
+            }
+            var d = Math.floor(diff / 86400000);
+            var h = Math.floor(diff / 3600000) % 24;
+            var m = Math.floor(diff / 60000) % 60;
+            var s = Math.floor(diff / 1000) % 60;
+            var set = function(k, v) {
+                var el = box.querySelector('[data-c="' + k + '"]');
+                if (el)
+                    el.textContent = pad(v);
+            };
+            set("d", d);
+            set("h", h);
+            set("m", m);
+            set("s", s);
+            return true;
+        }
+        if (tick()) {
+            var iv = setInterval(function() {
+                if (!tick())
+                    clearInterval(iv);
+            }, 1000);
+        }
+    })();
+
+    /* ---------- 2. NAV ---------- */
+    (function() {
+        var nav = document.getElementById("nav");
+        window.addEventListener("scroll", function() {
+            nav.classList.toggle("solid", window.scrollY > 40);
+        }, {
+            passive: true
+        });
+    })();
+
+    /* ---------- 3. SECTION 1 CONTENT ---------- */
+    (function() {
+        var ic = {
+            fast: '<path d="M20 13.5A8 8 0 1 1 11.2 4 6.4 6.4 0 0 0 20 13.5z"/>',
+            dua: '<circle cx="12" cy="14" r="3.2"/><path d="M12 3.5v2.8M5.4 7.4l1.8 1.8M18.6 7.4l-1.8 1.8"/>',
+            free: '<path d="M12 20.3S4.4 14.6 4.4 9.2A3.9 3.9 0 0 1 12 7.7a3.9 3.9 0 0 1 7.6 1.5c0 5.4-7.6 11.1-7.6 11.1z"/>',
+            deeds: '<path d="M12 2.6l9 4.6-9 4.6-9-4.6z"/><path d="M3.2 12l8.8 4.5 8.8-4.5"/><path d="M3.2 16.5l8.8 4.5 8.8-4.5"/>',
+            all: '<circle cx="12" cy="12" r="8.3"/><path d="M3.7 12h16.6M12 3.7c3 3 3 13.6 0 16.6M12 3.7c-3 3-3 13.6 0 16.6"/>',
+            turn: '<path d="M12 21V6M12 6l-4.4 4.4M12 6l4.4 4.4"/>',
+            eid: '<circle cx="12" cy="12" r="3.6"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.9 1.9M16.8 16.8l1.9 1.9M18.7 5.3l-1.9 1.9M7.2 16.8l-1.9 1.9"/>'
+        };
+        var virtues = [
+        {
+            a: "orange",
+            i: "fast",
+            h: "The most rewarding fast",
+            p: "Fasting on Arafah expiates the sins of the year before it and the year after it.",
+            src: "The Prophet&nbsp;&#65018; &middot; Sahih Muslim 1162"
+        },
+        {
+            a: "teal",
+            i: "dua",
+            h: "The best day for du’ā, ever",
+            p: "No day’s du’ā is more beloved, or more readily answered, than the du’ā of Arafah."
+        },
+        {
+            a: "coral",
+            i: "deeds",
+            h: "Deeds are multiplied",
+            p: "This is the day every deed counts the most, so pack it with as much as you possibly can."
+        },
+        {
+            a: "gold",
+            i: "turn",
+            h: "A turning point",
+            p: "This is where you can change your life. Your weakness can become strength, good can become better, hardship can become ease."
+        }
+        ];
+        var av = {
+            orange: ["#E8854A", "var(--brand-orange-soft)", "var(--brand-orange-border)"],
+            teal: ["#3CB89A", "var(--brand-teal-soft)", "var(--brand-teal-border)"],
+            coral: ["#D4607A", "var(--brand-coral-soft)", "var(--brand-coral-border)"],
+            purple: ["#7B6BAE", "var(--brand-purple-soft)", "var(--brand-purple-border)"],
+            gold: ["#c8a84e", "var(--brand-gold-soft)", "var(--brand-gold-border)"]
+        };
+        var vKey = "arafah_virtue_taps_v1";
+        var vTaps = {};
+        try {
+            vTaps = JSON.parse(localStorage.getItem(vKey) || "{}") || {};
+        } catch (e) {
+            vTaps = {};
+        }
+        var vCheck = '<svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
+        var vh = "";
+        virtues.forEach(function(v, vi) {
+            var c = av[v.a];
+            var done = vTaps[vi] ? " done" : "";
+            vh += '<div class="virtue reveal' + done + '" data-v="' + vi + '" style="--accent:' + c[0] + ';--accent-soft:' + c[1] + ';--accent-border:' + c[2] + '">'
+            + '<div class="virtue-badge"><span class="vb-tap">Tap me</span>'
+            + '<span class="vb-done">' + vCheck + '</span></div>'
+            + '<div class="ic"><svg viewBox="0 0 24 24">' + ic[v.i] + '</svg></div>'
+            + '<h3>' + v.h + '</h3><p>' + v.p + '</p>'
+            + (v.src ? '<p class="vsrc">' + v.src + '</p>' : '')
+            + '</div>';
+        });
+        document.getElementById("virtues").innerHTML = vh;
+        document.querySelectorAll("#virtues .virtue").forEach(function(card) {
+            card.addEventListener("click", function() {
+                var vi = card.getAttribute("data-v");
+                var nowDone = card.classList.toggle("done");
+                if (nowDone) {
+                    vTaps[vi] = 1;
+                } else {
+                    delete vTaps[vi];
+                }
+                try {
+                    localStorage.setItem(vKey, JSON.stringify(vTaps));
+                } catch (e) {}
+            });
+        });
+
+        var reminders = [
+        {
+            h: "Know what’s at stake",
+            p: "Don’t let the greatest day of the year slip by like any other."
+        },
+        {
+            h: "Turn back to Allah",
+            p: "Sins are obstacles to ease. Clear them now with sincere tawbah."
+        },
+        {
+            h: "Free up your day",
+            p: "Settle your tasks early so nothing competes for the day itself."
+        },
+        {
+            h: "Prepare your du’ās",
+            p: "Decide now what you’ll ask for, so no precious moment is wasted."
+        },
+        {
+            h: "Bring others with you",
+            p: "Tell family and friends, so they benefit, and so they lift you too."
+        }
+        ];
+        var rh = "";
+        reminders.forEach(function(r, i) {
+            rh += '<div class="rem reveal"><div class="n">' + (i + 1) + '</div>'
+            + '<h4>' + r.h + '</h4><p>' + r.p + '</p></div>';
+        });
+        document.getElementById("reminders").innerHTML = rh;
+    })();
+
+    /* ---------- SHARED: stage definitions ---------- */
+    var STAGE_META = [
+    {
+        key: "s1",
+        eyebrow: "Stage 1 · Monday evening",
+        title: "The day before Arafah",
+        sub: "Clear the decks and protect the day.",
+        accent: "#E8854A",
+        soft: "var(--brand-orange-soft)",
+        border: "var(--brand-orange-border)"
+    },
+    {
+        key: "s2",
+        eyebrow: "Stage 2 · Before Fajr",
+        title: "The last third of the night",
+        sub: "Begin in the hours Allah descends.",
+        accent: "#7B6BAE",
+        soft: "var(--brand-purple-soft)",
+        border: "var(--brand-purple-border)"
+    },
+    {
+        key: "s3",
+        eyebrow: "Stage 3 · Dawn",
+        title: "Fajr on the day of Arafah",
+        sub: "Open the day in worship.",
+        accent: "#3CB89A",
+        soft: "var(--brand-teal-soft)",
+        border: "var(--brand-teal-border)"
+    },
+    {
+        key: "s4",
+        eyebrow: "Stage 4 · Morning",
+        title: "After sunrise",
+        sub: "Rest with intention, then return.",
+        accent: "#c8a84e",
+        soft: "var(--brand-gold-soft)",
+        border: "var(--brand-gold-border)"
+    },
+    {
+        key: "s5",
+        eyebrow: "Stage 5 · Early afternoon",
+        title: "Dhuhr to Asr",
+        sub: "Build toward the key window.",
+        accent: "#D4607A",
+        soft: "var(--brand-coral-soft)",
+        border: "var(--brand-coral-border)"
+    },
+    {
+        key: "s6",
+        eyebrow: "Stage 6 · Late afternoon",
+        title: "Asr to Maghrib, the key window",
+        sub: "The peak hour. Do not hold back.",
+        accent: "#C56A35",
+        soft: "var(--brand-orange-soft)",
+        border: "var(--brand-orange-border)"
+    }
+    ];
+    var STAGE_TASKS = {
+        s1: ["Take the day off work or studies",
+        "Tell family &amp; friends about the day’s virtues",
+        "Let people know you’ll be busy with worship all day",
+        "Sleep straight after Isha",
+        "Set an alarm for an hour before Fajr"],
+        s2: ["Recite the du’ā for waking, and make du’ā",
+        "Have suhoor",
+        "Pray some night prayer (qiyām)",
+        "Ask Allah for aid to make the most of the day",
+        "Spend the final 5–10 minutes in istighfār"],
+        s3: ["Make wudū, picture each sin falling away",
+        "Repeat after the adhān and recite its du’ās",
+        "Pray the Fajr sunnah and fard",
+        "Recite the adhkār after Fajr and the morning adhkār",
+        "Recite some Qur’an",
+        "Stay awake until sunrise if you can"],
+        s4: ["If you rest, intend it as strength for worship",
+        "Sleep only as much as you need to function",
+        "Pray 4 rak’ahs of Duhā",
+        "Take care of your family’s needs before Dhuhr",
+        "Alternate acts of worship so you don’t tire"],
+        s5: ["Pray Dhuhr and its adhkār",
+        "Make du’ā",
+        "Alternate worship, Qur’an, hifdh, charity",
+        "Send a reminder to your family"],
+        s6: ["Du’ā, du’ā, du’ā, the peak hour",
+        "Beg Allah to free you from the Fire",
+        "Prepare your iftar",
+        "Stay humble, beware self-amazement"]
+    };
+
+    /* ---------- 4. SECTION 2, TIMETABLE ---------- */
+    (function() {
+        var CHECK_KEY = "arafah_checks_v1";
+        var checks = {};
+        try {
+            checks = JSON.parse(localStorage.getItem(CHECK_KEY) || "{}") || {};
+        } catch (e) {
+            checks = {};
+        }
+        function saveChecks() {
+            try {
+                localStorage.setItem(CHECK_KEY, JSON.stringify(checks));
+            } catch (e) {}
+        }
+
+        var tl = document.getElementById("timeline");
+        var tickSvg = '<svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';
+        var html = "";
+        STAGE_META.forEach(function(st, si) {
+            var tasks = STAGE_TASKS[st.key];
+            var acts = "";
+            tasks.forEach(function(t, ti) {
+                var id = st.key + "-" + ti;
+                var on = checks[id] ? " checked" : "";
+                acts += '<li><label><input type="checkbox" data-check="' + id + '"' + on + '>'
+                + '<span class="box">' + tickSvg + '</span>'
+                + '<span class="actx">' + t + '</span></label></li>';
+            });
+            html += '<article class="stage reveal' + (si === 0 ? " open" : "") + '" data-stage="' + st.key + '" '
+            + 'style="--accent:' + st.accent + '">'
+            + '<div class="stage-dot">' + (si + 1) + '</div>'
+            + '<div class="stage-card">'
+            + '<button class="stage-head" aria-expanded="' + (si === 0 ? "true" : "false") + '">'
+            + '<div class="txt"><div class="stage-eyebrow">' + st.eyebrow + '</div>'
+            + '<h3>' + st.title + '</h3><div class="sub">' + st.sub + '</div></div>'
+            + '<span class="stage-prog" data-prog>0 / ' + tasks.length + '</span>'
+            + '<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>'
+            + '</button>'
+            + '<div class="stage-panel"><div class="stage-panel-in"><ul class="acts">' + acts + '</ul></div></div>'
+            + '</article>';
+        });
+        tl.innerHTML = html;
+
+        tl.querySelectorAll(".stage").forEach(function(stage) {
+            var head = stage.querySelector(".stage-head");
+            head.addEventListener("click", function() {
+                var open = stage.classList.toggle("open");
+                head.setAttribute("aria-expanded", open ? "true" : "false");
+            });
+            function updateProg() {
+                var boxes = stage.querySelectorAll('input[type=checkbox]');
+                var done = 0;
+                boxes.forEach(function(b) {
+                    if (b.checked)
+                        done++;
+                });
+                var prog = stage.querySelector("[data-prog]");
+                prog.textContent = done + " / " + boxes.length;
+                stage.classList.toggle("complete", done === boxes.length && boxes.length > 0);
+            }
+            stage.querySelectorAll('input[type=checkbox]').forEach(function(b) {
+                b.addEventListener("change", function() {
+                    checks[b.getAttribute("data-check")] = b.checked;
+                    saveChecks();
+                    updateProg();
+                });
+            });
+            updateProg();
+        });
+
+        /* ----- save the suggested timetable as an image ----- */
+        function ttWrap(ctx, text, maxW) {
+            var words = String(text).replace(/&amp;/g, "&").split(/\s+/);
+            var lines = [],
+                line = "";
+            for (var i = 0; i < words.length; i++) {
+                var t = line ? line + " " + words[i] : words[i];
+                if (ctx.measureText(t).width > maxW && line) {
+                    lines.push(line);
+                    line = words[i];
+                }
+                else {
+                    line = t;
+                }
+            }
+            if (line)
+                lines.push(line);
+            return lines;
+        }
+        function ttRound(ctx, x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+        }
+        function ttExport() {
+            var build = function() {
+                var W = 1080,
+                    PAD = 64;
+                var mc = document.createElement("canvas").getContext("2d");
+                var blocks = [],
+                    y = 200;
+                STAGE_META.forEach(function(st, si) {
+                    var tasks = STAGE_TASKS[st.key],
+                        bh = 72,
+                        lines = [];
+                    tasks.forEach(function(t, ti) {
+                        mc.font = "400 24px 'DM Sans', sans-serif";
+                        var ls = ttWrap(mc, t, W - PAD * 2 - 58);
+                        lines.push({
+                            lines: ls,
+                            done: !!checks[st.key + "-" + ti]
+                        });
+                        bh += Math.max(46, ls.length * 32 + 18);
+                    });
+                    bh += 20;
+                    blocks.push({
+                        si: si,
+                        y: y,
+                        h: bh,
+                        lines: lines
+                    });
+                    y += bh + 18;
+                });
+                y += 110;
+                var H = y,
+                    ratio = 2;
+                var cv = document.createElement("canvas");
+                cv.width = W * ratio;
+                cv.height = H * ratio;
+                var ctx = cv.getContext("2d");
+                ctx.scale(ratio, ratio);
+                ctx.fillStyle = "#faf8f0";
+                ctx.fillRect(0, 0, W, H);
+                var g = ctx.createLinearGradient(0, 0, W, 0);
+                g.addColorStop(0, "#E8854A");
+                g.addColorStop(.4, "#D4607A");
+                g.addColorStop(.75, "#3CB89A");
+                g.addColorStop(1, "#7B6BAE");
+                ctx.fillStyle = g;
+                ctx.fillRect(0, 0, W, 8);
+                ctx.textBaseline = "alphabetic";
+                ctx.fillStyle = "#8a7234";
+                ctx.font = "600 16px 'DM Sans', sans-serif";
+                ctx.fillText("9 DHUL-HIJJAH 1447  ·  THE DAY OF ARAFAH", PAD, 78);
+                ctx.fillStyle = "#1a1a18";
+                ctx.font = "500 52px 'Playfair Display', serif";
+                ctx.fillText("Suggested Timetable", PAD, 134);
+                ctx.fillStyle = "#4a4a42";
+                ctx.font = "400 22px 'DM Sans', sans-serif";
+                ctx.fillText("A plan for the best day of the year, from the night before to sunset.", PAD, 170);
+                ctx.strokeStyle = "#e6e5de";
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(PAD, 196);
+                ctx.lineTo(W - PAD, 196);
+                ctx.stroke();
+                blocks.forEach(function(b) {
+                    var st = STAGE_META[b.si],
+                        yy = b.y;
+                    ctx.fillStyle = st.accent;
+                    ttRound(ctx, PAD, yy, W - PAD * 2, 54, 12);
+                    ctx.fill();
+                    ctx.fillStyle = "#ffffff";
+                    ctx.font = "600 24px 'DM Sans', sans-serif";
+                    ctx.fillText(st.title, PAD + 22, yy + 34);
+                    ctx.font = "600 15px 'DM Sans', sans-serif";
+                    var tt = st.eyebrow.toUpperCase(),
+                        tw = ctx.measureText(tt).width;
+                    ctx.globalAlpha = .92;
+                    ctx.fillText(tt, W - PAD - 22 - tw, yy + 34);
+                    ctx.globalAlpha = 1;
+                    var ty = yy + 54 + 20;
+                    b.lines.forEach(function(tk) {
+                        var sy = ty,
+                            cx = PAD + 16,
+                            cy = sy - 7;
+                        if (tk.done) {
+                            ctx.fillStyle = "#3CB89A";
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+                            ctx.fill();
+                            ctx.strokeStyle = "#ffffff";
+                            ctx.lineWidth = 2.6;
+                            ctx.lineCap = "round";
+                            ctx.lineJoin = "round";
+                            ctx.beginPath();
+                            ctx.moveTo(cx - 5, cy);
+                            ctx.lineTo(cx - 1, cy + 4);
+                            ctx.lineTo(cx + 5, cy - 4);
+                            ctx.stroke();
+                        } else {
+                            ctx.strokeStyle = "#d4d3cb";
+                            ctx.lineWidth = 2;
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+                            ctx.stroke();
+                        }
+                        ctx.fillStyle = tk.done ? "#8a8a80" : "#1a1a18";
+                        ctx.font = "400 24px 'DM Sans', sans-serif";
+                        tk.lines.forEach(function(ln, li) {
+                            ctx.fillText(ln, PAD + 42, sy + li * 32);
+                        });
+                        ty += Math.max(46, tk.lines.length * 32 + 18);
+                    });
+                });
+                ctx.strokeStyle = "#e6e5de";
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(PAD, H - 78);
+                ctx.lineTo(W - PAD, H - 78);
+                ctx.stroke();
+                ctx.fillStyle = "#8a8a80";
+                ctx.font = "400 18px 'DM Sans', sans-serif";
+                ctx.fillText("May Allah accept it from us and from you", PAD, H - 44);
+                try {
+                    var a = document.createElement("a");
+                    a.href = cv.toDataURL("image/png");
+                    a.download = "arafah-suggested-timetable.png";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    if (window.toast)
+                        window.toast("Saved, check your downloads");
+                } catch (e) {
+                    if (window.toast)
+                        window.toast("Could not save the image on this browser");
+                }
+            };
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(build);
+            } else {
+                build();
+            }
+        }
+        var ttBtn = document.getElementById("ttSaveImg");
+        if (ttBtn)
+            ttBtn.addEventListener("click", ttExport);
+    })();
+
+    /* ---------- 5. SECTION 3, BUILD YOUR CALENDAR ---------- */
+    (function() {
+        var CAL_KEY = "arafah_builder_v1";
+        var calendarEl = document.getElementById("calendar");
+        var paletteBody = document.getElementById("paletteBody");
+        var uid = 1;
+        function nid() {
+            return "t" + (uid++) + (Date.now() % 100000);
+        }
+
+        /* default state from shared definitions */
+        function defaultState() {
+            return STAGE_META.map(function(st) {
+                return {
+                    key: st.key,
+                    title: st.title,
+                    time: st.eyebrow.split("·")[1].trim(),
+                    tasks: STAGE_TASKS[st.key].map(function(t) {
+                        return {
+                            id: nid(),
+                            text: t,
+                            time: "",
+                            type: "suggested"
+                        };
+                    })
+                };
+            });
+        }
+
+        /* activity library for the sidebar */
+        var LIBRARY = [
+        {
+            g: "Worship",
+            items: [
+            "Fast the day of Arafah", "Pray qiyām (night prayer)", "Have suhoor",
+            "Make istighfār", "Make du’ā", "Pray Duhā",
+            "Recite the morning adhkār", "Recite the adhkār after prayer",
+            "Say the takbīr after each prayer", "Recite Qur’an", "Work on your hifdh",
+            "Reflect on a passage of Qur’an"]
+        },
+        {
+            g: "Heart &amp; people",
+            items: [
+            "Write your du’ā list", "Make sincere tawbah", "Make du’ā for others by name",
+            "Give in charity", "Help your parents with something", "Send your family a reminder",
+            "Listen to a reminder (BOL / 99 Names)", "Beg to be freed from the Fire",
+            "Rest to regain strength for worship", "Prepare your iftar"]
+        }
+        ];
+
+        var state;
+        function load() {
+            try {
+                var raw = localStorage.getItem(CAL_KEY);
+                if (raw) {
+                    var p = JSON.parse(raw);
+                    if (p && p.length) {
+                        p.forEach(function(s) {
+                            (s.tasks || []).forEach(function(t) {
+                                if (!t.id)
+                                    t.id = nid();
+                            });
+                        });
+                        return p;
+                    }
+                }
+            } catch (e) {}
+            return defaultState();
+        }
+        function save() {
+            try {
+                localStorage.setItem(CAL_KEY, JSON.stringify(state));
+            } catch (e) {}
+        }
+        state = load();
+
+        /* ----- helpers ----- */
+        function findTask(id) {
+            for (var i = 0; i < state.length; i++) {
+                for (var j = 0; j < state[i].tasks.length; j++) {
+                    if (state[i].tasks[j].id === id)
+                        return {
+                            si: i,
+                            ti: j
+                        };
+                }
+            }
+            return null;
+        }
+        function stageIndex(key) {
+            for (var i = 0; i < state.length; i++) {
+                if (state[i].key === key)
+                    return i;
+            }
+            return -1;
+        }
+
+        /* ----- icons ----- */
+        var I = {
+            grip: '<svg viewBox="0 0 24 24"><circle cx="9" cy="6" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="9" cy="18" r="1.4"/><circle cx="15" cy="6" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="15" cy="18" r="1.4"/></svg>',
+            up: '<svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>',
+            down: '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>',
+            x: '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+            star: '<svg class="star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.7L18.3 22 12 18.4 5.7 22 7 14 2 9.3l7.1-.7z"/></svg>',
+            plus: '<svg class="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>'
+        };
+
+        /* ----- render calendar ----- */
+        function render() {
+            calendarEl.innerHTML = "";
+            state.forEach(function(stage, si) {
+                var meta = STAGE_META[si] || STAGE_META[0];
+                var card = document.createElement("div");
+                card.className = "cstage";
+                card.style.setProperty("--accent", meta.accent);
+                card.style.setProperty("--accent-soft", meta.soft);
+                card.style.setProperty("--accent-border", meta.border);
+                card.dataset.key = stage.key;
+
+                var head = document.createElement("div");
+                head.className = "cstage-head";
+                head.innerHTML =
+                '<div class="cstage-bar"></div>'
+                + '<div class="cstage-titles">'
+                + '<div class="cstage-title" contenteditable="true" spellcheck="false"></div>'
+                + '<div class="cstage-time" contenteditable="true" spellcheck="false"></div>'
+                + '</div>'
+                + '<span class="cstage-count">' + stage.tasks.length + '</span>';
+                head.querySelector(".cstage-title").textContent = stage.title;
+                head.querySelector(".cstage-time").textContent = stage.time;
+                head.querySelector(".cstage-title").addEventListener("blur", function() {
+                    stage.title = this.textContent.trim() || "Untitled stage";
+                    save();
+                });
+                head.querySelector(".cstage-time").addEventListener("blur", function() {
+                    stage.time = this.textContent.trim();
+                    save();
+                });
+                card.appendChild(head);
+
+                var list = document.createElement("div");
+                list.className = "tasklist";
+                list.dataset.key = stage.key;
+
+                if (stage.tasks.length === 0) {
+                    var empty = document.createElement("div");
+                    empty.className = "task-empty";
+                    empty.textContent = "Drag an activity here, or add your own below.";
+                    list.appendChild(empty);
+                }
+                stage.tasks.forEach(function(task, ti) {
+                    list.appendChild(taskRow(stage, task, si, ti));
+                });
+                card.appendChild(list);
+
+                /* add-your-own row */
+                var add = document.createElement("div");
+                add.className = "task-add";
+                var inp = document.createElement("input");
+                inp.type = "text";
+                inp.placeholder = "Add your own, e.g. “Call my grandmother”";
+                var addBtn = document.createElement("button");
+                addBtn.type = "button";
+                addBtn.textContent = "+";
+                addBtn.setAttribute("aria-label", "Add task");
+                function doAdd() {
+                    var v = inp.value.trim();
+                    if (!v)
+                        return;
+                    stage.tasks.push({
+                        id: nid(),
+                        text: v,
+                        time: "",
+                        type: "custom"
+                    });
+                    inp.value = "";
+                    save();
+                    render();
+                    toast("Added to “" + stage.title + "”");
+                }
+                addBtn.addEventListener("click", doAdd);
+                inp.addEventListener("keydown", function(e) {
+                    if (e.key === "Enter")
+                        doAdd();
+                });
+                add.appendChild(inp);
+                add.appendChild(addBtn);
+                card.appendChild(add);
+
+                /* drop zone */
+                list.addEventListener("dragover", function(e) {
+                    e.preventDefault();
+                    card.classList.add("drop-active");
+                });
+                list.addEventListener("dragleave", function(e) {
+                    if (!list.contains(e.relatedTarget))
+                        card.classList.remove("drop-active");
+                });
+                list.addEventListener("drop", function(e) {
+                    e.preventDefault();
+                    card.classList.remove("drop-active");
+                    handleDrop(stage.key, e);
+                });
+
+                calendarEl.appendChild(card);
+            });
+        }
+
+        function taskRow(stage, task, si, ti) {
+            var row = document.createElement("div");
+            row.className = "task" + (task.type === "custom" ? " custom" : "");
+            row.dataset.id = task.id;
+
+            /* grip (drag handle) */
+            var grip = document.createElement("span");
+            grip.className = "grip";
+            grip.innerHTML = I.grip;
+            grip.setAttribute("draggable", "true");
+            grip.addEventListener("dragstart", function(e) {
+                e.dataTransfer.effectAllowed = "move";
+                e.dataTransfer.setData("text/plain", JSON.stringify({
+                    kind: "task",
+                    id: task.id
+                }));
+                try {
+                    e.dataTransfer.setDragImage(row, 20, 20);
+                } catch (err) {}
+                row.classList.add("dragging");
+            });
+            grip.addEventListener("dragend", function() {
+                row.classList.add("dragging");
+                row.classList.remove("dragging");
+            });
+
+            /* time */
+            var time = document.createElement("input");
+            time.className = "task-time";
+            time.type = "text";
+            time.placeholder = "time";
+            time.value = task.time || "";
+            time.addEventListener("change", function() {
+                task.time = time.value.trim();
+                save();
+            });
+            time.addEventListener("blur", function() {
+                task.time = time.value.trim();
+                save();
+            });
+
+            /* text */
+            var text = document.createElement("div");
+            text.className = "task-text";
+            text.contentEditable = "true";
+            text.spellcheck = false;
+            text.innerHTML = task.text;
+            text.addEventListener("blur", function() {
+                task.text = text.innerHTML.trim() || task.text;
+                save();
+            });
+            text.addEventListener("keydown", function(e) {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    text.blur();
+                }
+            });
+
+            /* tag */
+            var tag = document.createElement("span");
+            tag.className = "task-tag";
+            tag.textContent = task.type === "custom" ? "Yours" : "Suggested";
+
+            /* move up / down */
+            var moves = document.createElement("div");
+            moves.className = "task-moves";
+            var up = document.createElement("button");
+            up.className = "imt";
+            up.innerHTML = I.up;
+            up.setAttribute("aria-label", "Move up");
+            up.disabled = (si === 0 && ti === 0);
+            up.addEventListener("click", function() {
+                moveTask(task.id, -1);
+            });
+            var down = document.createElement("button");
+            down.className = "imt";
+            down.innerHTML = I.down;
+            down.setAttribute("aria-label", "Move down");
+            down.disabled = (si === state.length - 1 && ti === stage.tasks.length - 1);
+            down.addEventListener("click", function() {
+                moveTask(task.id, 1);
+            });
+            moves.appendChild(up);
+            moves.appendChild(down);
+
+            /* delete */
+            var del = document.createElement("button");
+            del.className = "task-del";
+            del.innerHTML = I.x;
+            del.setAttribute("aria-label", "Remove");
+            del.addEventListener("click", function() {
+                var pos = findTask(task.id);
+                if (pos) {
+                    state[pos.si].tasks.splice(pos.ti, 1);
+                    save();
+                    render();
+                }
+            });
+
+            row.appendChild(grip);
+            row.appendChild(time);
+            row.appendChild(text);
+            row.appendChild(tag);
+            row.appendChild(moves);
+            row.appendChild(del);
+
+            /* allow dropping before this row */
+            row.addEventListener("dragover", function(e) {
+                e.preventDefault();
+                row.classList.add("drop-before");
+            });
+            row.addEventListener("dragleave", function() {
+                row.classList.remove("drop-before");
+            });
+            row.addEventListener("drop", function(e) {
+                row.classList.remove("drop-before");
+            });
+            return row;
+        }
+
+        /* move a task across the whole flat sequence */
+        function moveTask(id, dir) {
+            var pos = findTask(id);
+            if (!pos)
+                return;
+            var si = pos.si,
+                ti = pos.ti;
+            var task = state[si].tasks[ti];
+            if (dir === -1) {
+                if (ti > 0) {
+                    state[si].tasks.splice(ti, 1);
+                    state[si].tasks.splice(ti - 1, 0, task);
+                } else if (si > 0) {
+                    state[si].tasks.splice(ti, 1);
+                    state[si - 1].tasks.push(task);
+                }
+            } else {
+                if (ti < state[si].tasks.length - 1) {
+                    state[si].tasks.splice(ti, 1);
+                    state[si].tasks.splice(ti + 1, 0, task);
+                } else if (si < state.length - 1) {
+                    state[si].tasks.splice(ti, 1);
+                    state[si + 1].tasks.unshift(task);
+                }
+            }
+            save();
+            render();
+        }
+
+        /* handle a drop onto a stage */
+        function handleDrop(stageKey, e) {
+            var data;
+            try {
+                data = JSON.parse(e.dataTransfer.getData("text/plain"));
+            } catch (err) {
+                return;
+            }
+            var dsi = stageIndex(stageKey);
+            if (dsi < 0)
+                return;
+            var idx = dropIndex(stageKey, e.clientY);
+
+            if (data.kind === "lib") {
+                var t = {
+                    id: nid(),
+                    text: data.label,
+                    time: "",
+                    type: "suggested"
+                };
+                state[dsi].tasks.splice(idx, 0, t);
+                save();
+                render();
+                toast("Added to “" + state[dsi].title + "”");
+            } else if (data.kind === "task") {
+                var pos = findTask(data.id);
+                if (!pos)
+                    return;
+                var moved = state[pos.si].tasks.splice(pos.ti, 1)[0];
+                /* if moving within same stage and removal shifted index */
+                if (pos.si === dsi && pos.ti < idx)
+                    idx--;
+                state[dsi].tasks.splice(idx, 0, moved);
+                save();
+                render();
+            }
+        }
+        /* find insertion index based on pointer Y */
+        function dropIndex(stageKey, y) {
+            var list = calendarEl.querySelector('.tasklist[data-key="' + stageKey + '"]');
+            if (!list)
+                return 0;
+            var rows = list.querySelectorAll(".task");
+            for (var i = 0; i < rows.length; i++) {
+                var r = rows[i].getBoundingClientRect();
+                if (y < r.top + r.height / 2)
+                    return i;
+            }
+            return rows.length;
+        }
+
+        /* ----- palette / library ----- */
+        function renderPalette() {
+            var html = "";
+            LIBRARY.forEach(function(grp) {
+                html += '<div class="pal-group">' + grp.g + '</div>';
+                grp.items.forEach(function(label) {
+                    html += '<div class="lib-card" draggable="true" data-label="' + label.replace(/"/g, "&quot;") + '">'
+                    + I.star + '<span>' + label + '</span>' + I.plus + '</div>';
+                });
+            });
+            paletteBody.innerHTML = html;
+            paletteBody.querySelectorAll(".lib-card").forEach(function(card) {
+                var label = card.getAttribute("data-label");
+                card.addEventListener("dragstart", function(e) {
+                    e.dataTransfer.effectAllowed = "copy";
+                    e.dataTransfer.setData("text/plain", JSON.stringify({
+                        kind: "lib",
+                        label: label
+                    }));
+                    card.classList.add("dragging");
+                });
+                card.addEventListener("dragend", function() {
+                    card.classList.remove("dragging");
+                });
+                /* tap to add (mobile + click fallback) */
+                card.addEventListener("click", function() {
+                    openPicker(label);
+                });
+            });
+        }
+
+        /* ----- stage picker modal ----- */
+        var modal = document.getElementById("modal");
+        var modalPicks = document.getElementById("modalPicks");
+        var modalSub = document.getElementById("modalSub");
+        function openPicker(label) {
+            modalSub.innerHTML = "Where should &ldquo;<b>" + label + "</b>&rdquo; go?";
+            modalPicks.innerHTML = "";
+            state.forEach(function(stage, si) {
+                var meta = STAGE_META[si];
+                var b = document.createElement("button");
+                b.className = "pick";
+                b.innerHTML = '<span class="pd" style="background:' + meta.accent + '"></span>'
+                + '<span>' + stage.title + '<br><small>' + stage.time + '</small></span>';
+                b.addEventListener("click", function() {
+                    stage.tasks.push({
+                        id: nid(),
+                        text: label,
+                        time: "",
+                        type: "suggested"
+                    });
+                    save();
+                    render();
+                    closePicker();
+                    toast("Added to “" + stage.title + "”");
+                });
+                modalPicks.appendChild(b);
+            });
+            modal.classList.add("show");
+        }
+        function closePicker() {
+            modal.classList.remove("show");
+        }
+        document.getElementById("modalX").addEventListener("click", closePicker);
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal)
+                closePicker();
+        });
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape")
+                closePicker();
+        });
+
+        /* ----- reset ----- */
+        document.getElementById("resetBtn").addEventListener("click", function() {
+            if (confirm("Reset your calendar back to the suggested plan? Your edits will be cleared.")) {
+                state = defaultState();
+                save();
+                render();
+                toast("Reset to the suggested plan");
+            }
+        });
+
+        /* ----- palette toggle (mobile) ----- */
+        var palette = document.getElementById("palette");
+        document.getElementById("palToggle").addEventListener("click", function() {
+            var open = palette.classList.toggle("open");
+            this.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        /* ----- toast ----- */
+        var toastEl = document.getElementById("toast");
+        var toastTimer;
+        window._arafahToast = function() {}; // placeholder
+        function toast(msg) {
+            toastEl.textContent = msg;
+            toastEl.classList.add("show");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function() {
+                toastEl.classList.remove("show");
+            }, 2200);
+        }
+        window.toast = toast;
+
+        /* ----- save as image ----- */
+        document.getElementById("saveImg").addEventListener("click", function() {
+            exportImage();
+        });
+
+        function wrapText(ctx, text, maxW) {
+            var words = String(text).replace(/&amp;/g, "&").split(/\s+/);
+            var lines = [],
+                line = "";
+            for (var i = 0; i < words.length; i++) {
+                var test = line ? line + " " + words[i] : words[i];
+                if (ctx.measureText(test).width > maxW && line) {
+                    lines.push(line);
+                    line = words[i];
+                } else {
+                    line = test;
+                }
+            }
+            if (line)
+                lines.push(line);
+            return lines;
+        }
+
+        function exportImage() {
+            var build = function() {
+                var W = 1080,
+                    PAD = 64;
+                var accent = ["#E8854A", "#7B6BAE", "#3CB89A", "#c8a84e", "#D4607A", "#C56A35"];
+                /* measuring canvas */
+                var mc = document.createElement("canvas").getContext("2d");
+                var blocks = [];
+                var y = 0;
+                y += 200; // header
+                blocks.push({
+                    t: "header",
+                    y: 0
+                });
+                state.forEach(function(stage, si) {
+                    var bh = 0;
+                    bh += 70; // stage header
+                    var taskLines = [];
+                    if (stage.tasks.length === 0) {
+                        taskLines.push({
+                            lines: ["(no activities yet)"],
+                            faint: true,
+                            time: ""
+                        });
+                        bh += 42;
+                    }
+                    stage.tasks.forEach(function(t) {
+                        mc.font = "400 24px 'DM Sans', sans-serif";
+                        var ls = wrapText(mc, t.text, W - PAD * 2 - 150);
+                        taskLines.push({
+                            lines: ls,
+                            time: t.time,
+                            custom: t.type === "custom"
+                        });
+                        bh += Math.max(44, ls.length * 32 + 16);
+                    });
+                    bh += 22; // padding
+                    blocks.push({
+                        t: "stage",
+                        si: si,
+                        y: y,
+                        h: bh,
+                        taskLines: taskLines
+                    });
+                    y += bh + 18;
+                });
+                y += 110; // footer
+                var H = y;
+
+                var ratio = 2;
+                var cv = document.createElement("canvas");
+                cv.width = W * ratio;
+                cv.height = H * ratio;
+                var ctx = cv.getContext("2d");
+                ctx.scale(ratio, ratio);
+
+                /* background */
+                ctx.fillStyle = "#faf8f0";
+                ctx.fillRect(0, 0, W, H);
+                /* top gradient bar */
+                var g = ctx.createLinearGradient(0, 0, W, 0);
+                g.addColorStop(0, "#E8854A");
+                g.addColorStop(.4, "#D4607A");
+                g.addColorStop(.75, "#3CB89A");
+                g.addColorStop(1, "#7B6BAE");
+                ctx.fillStyle = g;
+                ctx.fillRect(0, 0, W, 8);
+
+                /* header */
+                ctx.textBaseline = "alphabetic";
+                ctx.fillStyle = "#8a7234";
+                ctx.font = "600 16px 'DM Sans', sans-serif";
+                ctx.fillText("9 DHUL-HIJJAH 1447  ·  MONDAY 25 MAY 2026", PAD, 78);
+                ctx.fillStyle = "#1a1a18";
+                ctx.font = "500 52px 'Playfair Display', serif";
+                ctx.fillText("My Day of Arafah", PAD, 134);
+                ctx.fillStyle = "#4a4a42";
+                ctx.font = "400 22px 'DM Sans', sans-serif";
+                ctx.fillText("My plan to make the most of the finest day of the year.", PAD, 170);
+                ctx.strokeStyle = "#e6e5de";
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(PAD, 196);
+                ctx.lineTo(W - PAD, 196);
+                ctx.stroke();
+
+                /* stages */
+                blocks.forEach(function(b) {
+                    if (b.t !== "stage")
+                        return;
+                    var stage = state[b.si];
+                    var ac = accent[b.si] || accent[0];
+                    var yy = b.y;
+                    /* stage chip */
+                    ctx.fillStyle = ac;
+                    roundRect(ctx, PAD, yy, W - PAD * 2, 52, 12);
+                    ctx.fill();
+                    ctx.fillStyle = "#ffffff";
+                    ctx.font = "600 24px 'DM Sans', sans-serif";
+                    ctx.fillText(stage.title, PAD + 20, yy + 33);
+                    ctx.font = "600 15px 'DM Sans', sans-serif";
+                    var tt = (stage.time || "").toUpperCase();
+                    var tw = ctx.measureText(tt).width;
+                    ctx.globalAlpha = .9;
+                    ctx.fillText(tt, W - PAD - 20 - tw, yy + 33);
+                    ctx.globalAlpha = 1;
+                    var ty = yy + 52 + 14;
+                    b.taskLines.forEach(function(tk) {
+                        var startY = ty;
+                        /* marker */
+                        if (!tk.faint) {
+                            ctx.fillStyle = tk.custom ? "#D4607A" : "#3CB89A";
+                            ctx.beginPath();
+                            ctx.arc(PAD + 14, startY + 9, 5, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        /* time */
+                        if (tk.time) {
+                            ctx.fillStyle = "#8a8a80";
+                            ctx.font = "600 16px 'DM Sans', sans-serif";
+                            ctx.fillText(tk.time, PAD + 34, startY + 14);
+                        }
+                        /* text */
+                        ctx.fillStyle = tk.faint ? "#b0b0a4" : "#1a1a18";
+                        ctx.font = "400 24px 'DM Sans', sans-serif";
+                        var tx = PAD + 34 + 96;
+                        tk.lines.forEach(function(ln, li) {
+                            ctx.fillText(ln, tx, startY + 14 + li * 32);
+                        });
+                        ty += Math.max(44, tk.lines.length * 32 + 16);
+                    });
+                });
+
+                /* footer */
+                ctx.strokeStyle = "#e6e5de";
+                ctx.beginPath();
+                ctx.moveTo(PAD, H - 78);
+                ctx.lineTo(W - PAD, H - 78);
+                ctx.stroke();
+                ctx.fillStyle = "#8a8a80";
+                ctx.font = "400 18px 'DM Sans', sans-serif";
+                ctx.fillText("May Allah accept it from us and from you", PAD, H - 44);
+
+                /* download */
+                try {
+                    var url = cv.toDataURL("image/png");
+                    var a = document.createElement("a");
+                    a.href = url;
+                    a.download = "my-arafah-calendar.png";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    toast("Saved, check your downloads");
+                } catch (err) {
+                    toast("Could not save the image on this browser");
+                }
+            };
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(build);
+            } else {
+                build();
+            }
+        }
+        function roundRect(ctx, x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+        }
+
+        /* ----- clear drop highlights globally ----- */
+        document.addEventListener("dragend", function() {
+            document.querySelectorAll(".drop-active").forEach(function(el) {
+                el.classList.remove("drop-active");
+            });
+            document.querySelectorAll(".drop-before").forEach(function(el) {
+                el.classList.remove("drop-before");
+            });
+            document.querySelectorAll(".dragging").forEach(function(el) {
+                el.classList.remove("dragging");
+            });
+        });
+
+        /* ----- init ----- */
+        renderPalette();
+        render();
+    })();
+
+    /* ---------- 6. DU'Ā GUIDE (key-window component) ---------- */
+    (function() {
+        var DUA_KEY = "arafah_dua_list_v1";
+        var toggle = document.getElementById("duaToggle");
+        if (!toggle)
+            return;
+        var keywindow = toggle.closest(".keywindow");
+        var input = document.getElementById("duaInput");
+        var addBtn = document.getElementById("duaAdd");
+        var listEl = document.getElementById("duaList");
+        var countEl = document.getElementById("duaCount");
+        var themesEl = document.getElementById("duaThemes");
+        var saveBtn = document.getElementById("duaSave");
+
+        var THEMES = [
+        "Start with Hamd & Shukr",
+        "Send Salawat on the Prophet ﷺ",
+        "Ask forgiveness & freedom from the Fire",
+        "Religion", "Personal aims", "Health", "Family", "Friends",
+        "Financial affairs", "The Ummah", "Anything else"
+        ];
+        var duas = [];
+        try {
+            duas = JSON.parse(localStorage.getItem(DUA_KEY) || "[]") || [];
+        } catch (e) {
+            duas = [];
+        }
+        function save() {
+            try {
+                localStorage.setItem(DUA_KEY, JSON.stringify(duas));
+            } catch (e) {}
+        }
+
+        toggle.addEventListener("click", function() {
+            var open = keywindow.classList.toggle("dua-open");
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        THEMES.forEach(function(t) {
+            var li = document.createElement("li");
+            li.className = "dt-item";
+            li.textContent = t;
+            li.addEventListener("click", function() {
+                input.value = t;
+                input.focus();
+            });
+            themesEl.appendChild(li);
+        });
+
+        var delIcon = '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+        function render() {
+            listEl.innerHTML = "";
+            countEl.textContent = duas.length;
+            if (duas.length === 0) {
+                var em = document.createElement("li");
+                em.className = "dua-empty";
+                em.textContent = "Your list is empty, write a du'ā above, or tap a theme to begin.";
+                listEl.appendChild(em);
+                return;
+            }
+            duas.forEach(function(d, i) {
+                var li = document.createElement("li");
+                li.className = "dua-item";
+                var n = document.createElement("span");
+                n.className = "di-n";
+                n.textContent = (i + 1) + ".";
+                var tx = document.createElement("span");
+                tx.className = "di-text";
+                tx.textContent = d;
+                var del = document.createElement("button");
+                del.type = "button";
+                del.className = "di-del";
+                del.setAttribute("aria-label", "Remove");
+                del.innerHTML = delIcon;
+                del.addEventListener("click", function() {
+                    duas.splice(i, 1);
+                    save();
+                    render();
+                });
+                li.appendChild(n);
+                li.appendChild(tx);
+                li.appendChild(del);
+                listEl.appendChild(li);
+            });
+        }
+        function add() {
+            var v = input.value.trim();
+            if (!v)
+                return;
+            duas.push(v);
+            input.value = "";
+            save();
+            render();
+            input.focus();
+        }
+        addBtn.addEventListener("click", add);
+        input.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                add();
+            }
+        });
+
+        function duWrap(ctx, text, maxW) {
+            var words = String(text).split(/\s+/),
+                lines = [],
+                line = "";
+            for (var i = 0; i < words.length; i++) {
+                var t = line ? line + " " + words[i] : words[i];
+                if (ctx.measureText(t).width > maxW && line) {
+                    lines.push(line);
+                    line = words[i];
+                }
+                else {
+                    line = t;
+                }
+            }
+            if (line)
+                lines.push(line);
+            return lines;
+        }
+        saveBtn.addEventListener("click", function() {
+            if (duas.length === 0) {
+                if (window.toast)
+                    window.toast("Add a du'ā to your list first");
+                return;
+            }
+            var build = function() {
+                var W = 1000,
+                    PAD = 60;
+                var mc = document.createElement("canvas").getContext("2d");
+                var rows = [],
+                    y = 212;
+                duas.forEach(function(d) {
+                    mc.font = "400 23px 'DM Sans', sans-serif";
+                    var ls = duWrap(mc, d, W - PAD * 2 - 46);
+                    rows.push(ls);
+                    y += Math.max(42, ls.length * 30 + 18);
+                });
+                y += 92;
+                var H = y,
+                    ratio = 2;
+                var cv = document.createElement("canvas");
+                cv.width = W * ratio;
+                cv.height = H * ratio;
+                var ctx = cv.getContext("2d");
+                ctx.scale(ratio, ratio);
+                ctx.fillStyle = "#faf8f0";
+                ctx.fillRect(0, 0, W, H);
+                var g = ctx.createLinearGradient(0, 0, W, 0);
+                g.addColorStop(0, "#E8854A");
+                g.addColorStop(.4, "#D4607A");
+                g.addColorStop(.75, "#3CB89A");
+                g.addColorStop(1, "#7B6BAE");
+                ctx.fillStyle = g;
+                ctx.fillRect(0, 0, W, 8);
+                ctx.textBaseline = "alphabetic";
+                ctx.fillStyle = "#8a7234";
+                ctx.font = "600 15px 'DM Sans', sans-serif";
+                ctx.fillText("THE DAY OF ARAFAH  ·  9 DHUL-HIJJAH 1447", PAD, 76);
+                ctx.fillStyle = "#1a1a18";
+                ctx.font = "500 48px 'Playfair Display', serif";
+                ctx.fillText("My Du'ā List", PAD, 128);
+                ctx.fillStyle = "#4a4a42";
+                ctx.font = "italic 400 20px 'Playfair Display', serif";
+                ctx.fillText("Ya Allah, if anything were possible, I would ask You for…", PAD, 164);
+                ctx.strokeStyle = "#e6e5de";
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(PAD, 188);
+                ctx.lineTo(W - PAD, 188);
+                ctx.stroke();
+                var ty = 212;
+                rows.forEach(function(ls, i) {
+                    var sy = ty;
+                    ctx.fillStyle = "#C56A35";
+                    ctx.font = "500 22px 'Playfair Display', serif";
+                    ctx.fillText((i + 1) + ".", PAD, sy + 8);
+                    ctx.fillStyle = "#1a1a18";
+                    ctx.font = "400 23px 'DM Sans', sans-serif";
+                    ls.forEach(function(ln, li) {
+                        ctx.fillText(ln, PAD + 46, sy + 8 + li * 30);
+                    });
+                    ty += Math.max(42, ls.length * 30 + 18);
+                });
+                ctx.strokeStyle = "#e6e5de";
+                ctx.beginPath();
+                ctx.moveTo(PAD, H - 66);
+                ctx.lineTo(W - PAD, H - 66);
+                ctx.stroke();
+                ctx.fillStyle = "#8a8a80";
+                ctx.font = "400 17px 'DM Sans', sans-serif";
+                ctx.fillText("May Allah hear every word, and answer with what is best.", PAD, H - 38);
+                try {
+                    var a = document.createElement("a");
+                    a.href = cv.toDataURL("image/png");
+                    a.download = "my-arafah-dua-list.png";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    if (window.toast)
+                        window.toast("Saved, check your downloads");
+                } catch (e) {
+                    if (window.toast)
+                        window.toast("Could not save the image on this browser");
+                }
+            };
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(build);
+            }
+            else {
+                build();
+            }
+        });
+
+        render();
+    })();
+
+    /* ---------- 7. REVEAL ON SCROLL (runs last, after all content is injected) ---------- */
+    (function() {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+            els.forEach(function(el) {
+                el.classList.add("in");
+            });
+            return;
+        }
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add("in");
+                    io.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        });
+        els.forEach(function(el) {
+            io.observe(el);
+        });
+    })();
+    </script>
+</body>
+</html>
